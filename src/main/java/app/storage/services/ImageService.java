@@ -24,7 +24,7 @@ public class ImageService {
         this.metadataRepository = metadataRepository;
     }
 
-    public ImageMetadata uploadImage(MultipartFile file, String ownerId) {
+    public ImageMetadata uploadImage(MultipartFile file, String ownerId) throws IOException {
         validateImage(file);
 
         String storagePath;
@@ -41,7 +41,7 @@ public class ImageService {
                 ownerId,
                 file.getSize(),
                 Instant.now(),
-                null
+                ObjectId.get()
         );
 
         return metadataRepository.save(metadata);
