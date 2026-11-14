@@ -3,6 +3,7 @@ package app.storage.services;
 
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
+import org.springframework.stereotype.Service;
 import org.springframework.util.StreamUtils;
 
 import java.io.*;
@@ -13,6 +14,7 @@ import java.nio.file.StandardOpenOption;
 import java.time.LocalDate;
 import java.util.UUID;
 
+@Service
 public class LocalImageStorageService {
     private final ImageStorageProperties properties;
     private final Path rootPath;
